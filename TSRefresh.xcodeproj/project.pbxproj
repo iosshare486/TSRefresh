@@ -27,7 +27,6 @@
 		B25CEC3D20DB9EFE00F47F17 /* GTMRefreshExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25CEC3320DB9EFE00F47F17 /* GTMRefreshExtension.swift */; };
 		B25CEC3F20DBA23D00F47F17 /* TSRefreshStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25CEC3E20DBA23D00F47F17 /* TSRefreshStyle.swift */; };
 		B25CEC4120DBA47700F47F17 /* youku_refreshing@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B25CEC4020DBA47600F47F17 /* youku_refreshing@3x.png */; };
-		C37E2128669F993C9A1CC407 /* Pods_TSRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA7BE61475243DE3D3CAAFEB /* Pods_TSRefresh.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +76,6 @@
 		B25CEC3320DB9EFE00F47F17 /* GTMRefreshExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTMRefreshExtension.swift; sourceTree = "<group>"; };
 		B25CEC3E20DBA23D00F47F17 /* TSRefreshStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSRefreshStyle.swift; sourceTree = "<group>"; };
 		B25CEC4020DBA47600F47F17 /* youku_refreshing@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "youku_refreshing@3x.png"; sourceTree = "<group>"; };
-		EA7BE61475243DE3D3CAAFEB /* Pods_TSRefresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TSRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEFC4C52D2751F2883C14E9A /* Pods-TSRefresh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSRefresh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TSRefresh/Pods-TSRefresh.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,7 +84,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C37E2128669F993C9A1CC407 /* Pods_TSRefresh.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,7 +116,6 @@
 		A6EE86D7888943C0A89FF36C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EA7BE61475243DE3D3CAAFEB /* Pods_TSRefresh.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -221,7 +217,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B25CEC1920DB902100F47F17 /* Build configuration list for PBXNativeTarget "TSRefresh" */;
 			buildPhases = (
-				766F17F6EA0D1A2949DA78D0 /* [CP] Check Pods Manifest.lock */,
 				B25CEBED20DB901F00F47F17 /* Sources */,
 				B25CEBEE20DB901F00F47F17 /* Frameworks */,
 				B25CEBEF20DB901F00F47F17 /* Resources */,
@@ -346,27 +341,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		766F17F6EA0D1A2949DA78D0 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TSRefresh-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B25CEBED20DB901F00F47F17 /* Sources */ = {

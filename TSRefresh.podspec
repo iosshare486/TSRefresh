@@ -15,9 +15,9 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "TSNetwork"
-  s.version      = "1.0.0"
-  s.summary      = "TSNetwork"
+  s.name         = "TSRefresh"
+  s.version      = "0.0.1"
+  s.summary      = "TSRefresh"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-                    基于Alamofire的网络封装，加上HandyJSON数据解析，还支持网络监听。
+                    下拉刷新组件，包括TableView，CollectionView，ScrollView
                    DESC
 
   s.homepage     = "http://www.baidu.com"
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "http://gitlab.caiqr.com/ios_module/TSNetwork.git", :tag => "#{s.version}" }
+  s.source       = { :git => "http://gitlab.caiqr.com/ios_module/TSRefresh.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -91,7 +91,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "TSNetWork/TSNetWork"
+  s.source_files  = "TSRefresh/TSRefresh"
   #s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
@@ -135,8 +135,8 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  s.dependency "Alamofire"
-  s.dependency "HandyJSON"
-  s.dependency "ReachabilitySwift"
+  #s.dependency "Alamofire"
+  #s.dependency "HandyJSON"
+  #s.dependency "ReachabilitySwift"
 
 end
