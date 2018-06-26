@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B221974920E1D96E0009DFD5 /* TSRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B221974820E1D96E0009DFD5 /* TSRefreshHeader.swift */; };
+		B221974B20E1E24B0009DFD5 /* YoukuRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B221974A20E1E24B0009DFD5 /* YoukuRefreshHeader.swift */; };
+		B221974D20E1E9580009DFD5 /* TSLoadMoreFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B221974C20E1E9580009DFD5 /* TSLoadMoreFooter.swift */; };
 		B25CEBF520DB901F00F47F17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25CEBF420DB901F00F47F17 /* AppDelegate.swift */; };
 		B25CEBF720DB901F00F47F17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25CEBF620DB901F00F47F17 /* ViewController.swift */; };
 		B25CEBFA20DB901F00F47F17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B25CEBF820DB901F00F47F17 /* Main.storyboard */; };
@@ -48,6 +51,9 @@
 
 /* Begin PBXFileReference section */
 		432EE7685A733F93DB162E69 /* Pods-TSRefresh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSRefresh.release.xcconfig"; path = "Pods/Target Support Files/Pods-TSRefresh/Pods-TSRefresh.release.xcconfig"; sourceTree = "<group>"; };
+		B221974820E1D96E0009DFD5 /* TSRefreshHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSRefreshHeader.swift; sourceTree = "<group>"; };
+		B221974A20E1E24B0009DFD5 /* YoukuRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoukuRefreshHeader.swift; sourceTree = "<group>"; };
+		B221974C20E1E9580009DFD5 /* TSLoadMoreFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSLoadMoreFooter.swift; sourceTree = "<group>"; };
 		B25CEBF120DB901F00F47F17 /* TSRefresh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TSRefresh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B25CEBF420DB901F00F47F17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B25CEBF620DB901F00F47F17 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +153,7 @@
 			children = (
 				B25CEC2220DB910300F47F17 /* TSRefresh */,
 				B25CEBF420DB901F00F47F17 /* AppDelegate.swift */,
+				B221974A20E1E24B0009DFD5 /* YoukuRefreshHeader.swift */,
 				B25CEBF620DB901F00F47F17 /* ViewController.swift */,
 				B25CEC4020DBA47600F47F17 /* youku_refreshing@3x.png */,
 				B25CEBF820DB901F00F47F17 /* Main.storyboard */,
@@ -181,6 +188,8 @@
 				B25CEC4220DBAD5300F47F17 /* GTMRefresh */,
 				B25CEC2320DB98DA00F47F17 /* TSRefresh.swift */,
 				B25CEC3E20DBA23D00F47F17 /* TSRefreshStyle.swift */,
+				B221974820E1D96E0009DFD5 /* TSRefreshHeader.swift */,
+				B221974C20E1E9580009DFD5 /* TSLoadMoreFooter.swift */,
 			);
 			path = TSRefresh;
 			sourceTree = "<group>";
@@ -347,13 +356,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B221974D20E1E9580009DFD5 /* TSLoadMoreFooter.swift in Sources */,
 				B25CEC5420DBAD5300F47F17 /* GTMRefreshStyle.swift in Sources */,
 				B25CEC5220DBAD5300F47F17 /* GTMLoadMoreFooter.swift in Sources */,
 				B25CEC5A20DBAD5300F47F17 /* GTMRefreshExtension.swift in Sources */,
 				B25CEBF720DB901F00F47F17 /* ViewController.swift in Sources */,
 				B25CEC5520DBAD5300F47F17 /* GTMRefreshComponent.swift in Sources */,
+				B221974920E1D96E0009DFD5 /* TSRefreshHeader.swift in Sources */,
 				B25CEC5120DBAD5300F47F17 /* GTMRefreshConstant.swift in Sources */,
 				B25CEBF520DB901F00F47F17 /* AppDelegate.swift in Sources */,
+				B221974B20E1E24B0009DFD5 /* YoukuRefreshHeader.swift in Sources */,
 				B25CEC2420DB98DA00F47F17 /* TSRefresh.swift in Sources */,
 				B25CEC3F20DBA23D00F47F17 /* TSRefreshStyle.swift in Sources */,
 				B25CEC5320DBAD5300F47F17 /* GTMRefreshHeader.swift in Sources */,
