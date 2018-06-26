@@ -50,5 +50,80 @@
     self.scrollView?.ts_footerIdleImage(UIImage.init(named: "youku_refreshing"))   未到达刷新点展位图片
 </pre>
 
+## 自定义下拉刷新和上拉加载
+
+<pre>
+	//header配置
+	//自定义View，以TSDemoRefreshHeader为例
+	class TSDemoRefreshHeader: TSRefreshHeader, TSRefreshHeaderProtocol 	{
+		override init(frame: CGRect) {
+        
+       // let adjustFrame = CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.size.width, height: frameHeight)
+        	super.init(frame: frame)
+        	
+        }
+        override func layoutSubviews() {
+        	super.layoutSubviews()
+        	
+        }
+        //必须实现协议 返回控件的高度
+        func tsContentHeight()->CGFloat{
+        return 60
+    	 }
+    	 //以下协议为可选实现
+    	 /// 正常状态
+	    @objc optional func tsToNormalState()
+	    /// 刷新状态
+	    @objc optional func tsToRefreshingState()
+	    /// 下拉状态
+	    @objc optional func tsToPullingState()
+	    /// 打到最大下拉程度
+	    @objc optional func tsToWillRefreshState()
+	    /// 下拉高度／触发高度 值改变
+	    @objc optional func tsChangePullingPercent(percent: CGFloat)
+	    /// 开始回弹动画前执行
+	    @objc optional func tsWillBeginEndRefershing(isSuccess: Bool)
+	    /// 结束回弹动画完成后执行
+	    @objc optional func tsWillCompleteEndRefershing()
+	}
+	//使用
+	let refreshHeader = TSRefreshHeader()
+	self.scrollView?.ts_addRefreshHeaderView(refreshHeader: refreshHeader, refreshBlock: { [weak self] in
+            print("excute refreshBlock")
+            self?.refresh()
+        })
+	
+	//footer配置	
+	class TSDemoRefreshFooter: TSLoadMoreFooter, TSLoadMoreProtocol 	{
+		override init(frame: CGRect) {
+        
+       // let adjustFrame = CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.size.width, height: frameHeight)
+        	super.init(frame: frame)
+        	
+        }
+        override func layoutSubviews() {
+        	super.layoutSubviews()
+        	
+        }
+        //必须实现协议 返回控件的高度
+        func tsContentHeight()->CGFloat{
+        return 60
+    	 }
+    	 //以下协议为可选实现
+    	 //默认状态
+    	 @objc optional func tsToNormalState()
+    	 //没有更多数据状态
+    	 @objc optional func tsToNoMoreDataState()
+    	 //打到最大上拉程度状态
+    	 @objc optional func tsToWillRefreshState()
+    	 // 刷新状态
+    	 @objc optional func tsToRefreshingState()
+	}
+	//使用
+    let refreshFooter = TSDemoRefreshFooter()
+    self.scrollView?.ts_addLoadMoreFooterView(loadMoreFooter: refreshFooter, loadMoreBlock: { [weak self] in
+            print("excute refreshBlock")
+        })
+</pre>
 ## Pod
 pod 'TSRefresh'
