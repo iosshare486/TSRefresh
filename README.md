@@ -4,13 +4,13 @@
 <pre>
 	let scrollView = UIScrollView(frame: CGRect(x: 0,y: 0,width: 300,height: 300))
 	添加下拉刷新
-	scrollView?.ts_addRefreshHeaderView {
+	scrollView?.ts_addRefreshAction {
             [weak self] in
             print("excute refreshBlock")
             self?.refresh()
         }
    	添加上拉加载 
-	scrollView?.ts_addLoadMoreFooterView {
+	scrollView?.ts_addLoadMoreAcion {
             [weak self] in
             print("excute loadMoreBlock")
             self?.loadMore()

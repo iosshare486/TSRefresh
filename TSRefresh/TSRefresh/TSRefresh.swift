@@ -15,7 +15,7 @@ extension UIScrollView {
     ///   - refreshHeader: 下拉刷新动效View必须继承TSRefreshHeader并且要实现TSRefreshHeaderProtocol，不传值的时候默认使用 DefaultGTMRefreshHeader
     ///   - refreshBlock: 刷新数据Block
     @discardableResult
-    final public func ts_addRefreshHeaderView(refreshHeader: GTMRefreshHeader? = DefaultGTMRefreshHeader(), refreshBlock:@escaping () -> Void) -> UIScrollView {
+    final public func ts_addRefreshAction(refreshHeader: GTMRefreshHeader? = DefaultGTMRefreshHeader(), refreshBlock:@escaping () -> Void) -> UIScrollView {
         return self.gtm_addRefreshHeaderView(refreshHeader: refreshHeader, refreshBlock: refreshBlock)
     }
     
@@ -27,7 +27,7 @@ extension UIScrollView {
     ///   - loadMoreFooter: 上拉加载动效View必须继承GTMLoadMoreFooter，不传值的时候默认使用 DefaultGTMLoadMoreFooter
     ///   - refreshBlock: 加载更多数据Block
     @discardableResult
-    final public func ts_addLoadMoreFooterView(loadMoreFooter: GTMLoadMoreFooter? = DefaultGTMLoadMoreFooter(), loadMoreBlock:@escaping () -> Void) -> UIScrollView {
+    final public func ts_addLoadMoreAction(loadMoreFooter: GTMLoadMoreFooter? = DefaultGTMLoadMoreFooter(), loadMoreBlock:@escaping () -> Void) -> UIScrollView {
         return self.gtm_addLoadMoreFooterView(loadMoreFooter: loadMoreFooter, loadMoreBlock: loadMoreBlock)
     }
     
