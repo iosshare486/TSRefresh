@@ -18,11 +18,11 @@ class ViewController:UIViewController{
         self.automaticallyAdjustsScrollViewInsets = false
         setUpScrollView()
         let refreshHeaders = YoukuRefreshHeader()
-        self.scrollView?.ts_addRefreshHeaderView(refreshHeader: refreshHeaders, refreshBlock: { [weak self] in
+        self.scrollView?.ts_addRefreshAction(refreshHeader: refreshHeaders, refreshBlock: { [weak self] in
             print("excute refreshBlock")
             self?.refresh()
         })
-        self.scrollView?.ts_addLoadMoreFooterView(loadMoreFooter: <#T##GTMLoadMoreFooter?#>, loadMoreBlock: <#T##() -> Void#>)
+//        self.scrollView?.ts_addLoadMoreFooterView(loadMoreFooter: <#T##GTMLoadMoreFooter?#>, loadMoreBlock: <#T##() -> Void#>)
         
 //        self.scrollView?.ts_addRefreshHeaderView {
 //            [weak self] in
@@ -30,7 +30,8 @@ class ViewController:UIViewController{
 //            self?.refresh()
 //        }
 //
-//        self.scrollView?.ts_addLoadMoreFooterView {
+//        self.scrollView?.ts_addRefreshAction {
+//            {
 //            [weak self] in
 //            print("excute loadMoreBlock")
 //            self?.loadMore()
@@ -62,7 +63,7 @@ class ViewController:UIViewController{
     }
     
     @objc func endRefresing() {
-        self.scrollView?.ts_endRefreshing(isSuccess: true)
+        self.scrollView?.ts_endRefreshingAndLoading(isNoMoreData: false)
     }
     
     func loadMore() {
@@ -70,7 +71,7 @@ class ViewController:UIViewController{
     }
     
     @objc func endLoadMore() {
-        self.scrollView?.ts_endLoadMore(isNoMoreData: true)
+        self.scrollView?.ts_endRefreshingAndLoading(isNoMoreData: false)
     }
     
     func setUpScrollView(){

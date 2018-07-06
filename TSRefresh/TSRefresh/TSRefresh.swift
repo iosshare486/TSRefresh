@@ -65,11 +65,11 @@ extension UIScrollView {
         self.triggerRefreshing()
     }
     
-    final public func ts_endRefreshing(isSuccess: Bool) {
-        self.endRefreshing(isSuccess: isSuccess)
-    }
-    final public func ts_endLoadMore(isNoMoreData: Bool) {
-        self.endLoadMore(isNoMoreData: isNoMoreData)
+    final public func ts_endRefreshingAndLoading(isNoMoreData: Bool) {
+        if let _ = self.gtmFooter {
+            self.endLoadMore(isNoMoreData: isNoMoreData)
+        }
+        self.endRefreshing(isSuccess: true)
     }
 }
 

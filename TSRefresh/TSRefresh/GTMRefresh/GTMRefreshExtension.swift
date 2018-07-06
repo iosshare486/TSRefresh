@@ -88,10 +88,6 @@ extension UIScrollView {
     
     final public func endRefreshing(isSuccess: Bool) {
         self.gtmHeader?.endRefresing(isSuccess: isSuccess)
-        if isSuccess {
-            // 重置footer状态（防止footer还处在数据加载完成状态）
-            self.gtmFooter?.state = .idle
-        }
     }
     final public func endLoadMore(isNoMoreData: Bool) {
         self.gtmFooter?.endLoadMore(isNoMoreData: isNoMoreData)
