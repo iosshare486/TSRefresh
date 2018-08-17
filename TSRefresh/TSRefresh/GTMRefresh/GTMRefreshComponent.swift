@@ -44,7 +44,7 @@ open class GTMRefreshComponent: UIView {
         self.autoresizingMask = UIViewAutoresizing.flexibleWidth
         self.backgroundColor = UIColor.clear
         
-        self.state = .idle
+        self.state = .refreshing
     }
     
     required public init?(coder aDecoder: NSCoder) {

@@ -17,11 +17,11 @@ class ViewController:UIViewController{
         self.view.backgroundColor = UIColor.white
         self.automaticallyAdjustsScrollViewInsets = false
         setUpScrollView()
-        let refreshHeaders = YoukuRefreshHeader()
-        self.scrollView?.ts_addRefreshAction(refreshHeader: refreshHeaders, refreshBlock: { [weak self] in
-            print("excute refreshBlock")
-            self?.refresh()
-        })
+//        let refreshHeaders = YoukuRefreshHeader()
+//        self.scrollView?.ts_addRefreshAction(refreshHeader: refreshHeaders, refreshBlock: { [weak self] in
+//            print("excute refreshBlock")
+//            self?.refresh()
+//        })
 //        self.scrollView?.ts_addLoadMoreFooterView(loadMoreFooter: <#T##GTMLoadMoreFooter?#>, loadMoreBlock: <#T##() -> Void#>)
         
 //        self.scrollView?.ts_addRefreshHeaderView {
@@ -30,8 +30,12 @@ class ViewController:UIViewController{
 //            self?.refresh()
 //        }
 //
+        
+        self.scrollView?.ts_addRefreshAction { [weak self] in
+            self?.refresh()
+        }
+        
 //        self.scrollView?.ts_addRefreshAction {
-//            {
 //            [weak self] in
 //            print("excute loadMoreBlock")
 //            self?.loadMore()
@@ -45,7 +49,11 @@ class ViewController:UIViewController{
 //            .ts_refreshingText("亲，正在努力刷新")
 //
 //
-//        self.scrollView?.ts_footerTextColor(.yellow).ts_pullUpToRefreshText("哈哈哈").ts_noMoreDataText("nnnnn").ts_releaseLoadMoreText("撒手试试").ts_loaddingText("正在刷新")
+        self.scrollView?.ts_footerTextColor(.yellow).ts_pullUpToRefreshText("哈哈哈").ts_noMoreDataText("nnnnn").ts_releaseLoadMoreText("撒手试试").ts_loaddingText("正在刷新")
+        self.scrollView?.ts_headerIdleImage(#imageLiteral(resourceName: "xiala"))
+//        self.scrollView?.ts_headerSucImage(#imageLiteral(resourceName: "success.png"))
+//        self.scrollView?.ts_headerPullingIndicatorImage(UIImageView(image: #imageLiteral(resourceName: "songkai")))
+        
 //        // color
 //        self.scrollView?.ts_headerTextColor(.red)
 //        // icon
@@ -76,7 +84,7 @@ class ViewController:UIViewController{
     
     func setUpScrollView(){
         self.scrollView = UIScrollView(frame: CGRect(x: 0,y: 0,width: 300,height: 300))
-        self.scrollView?.backgroundColor = UIColor.lightGray
+        self.scrollView?.backgroundColor = UIColor.blue
         self.scrollView?.center = self.view.center
         self.scrollView?.contentSize = CGSize(width: 300,height: 600)
         self.view.addSubview(self.scrollView!)
