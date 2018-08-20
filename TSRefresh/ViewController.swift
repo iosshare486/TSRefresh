@@ -11,12 +11,13 @@ import UIKit
 
 class ViewController:UIViewController{
     var scrollView:UIScrollView?
-    var refreshHeader:YoukuRefreshHeader?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         self.automaticallyAdjustsScrollViewInsets = false
         setUpScrollView()
+        
+        
 //        let refreshHeaders = YoukuRefreshHeader()
 //        self.scrollView?.ts_addRefreshAction(refreshHeader: refreshHeaders, refreshBlock: { [weak self] in
 //            print("excute refreshBlock")
@@ -29,11 +30,18 @@ class ViewController:UIViewController{
 //            print("excute refreshBlock")
 //            self?.refresh()
 //        }
+//        self.scrollView?.ts_addRefreshAction {
 //
-        
-        self.scrollView?.ts_addRefreshAction { [weak self] in
+//        }
+//
+        self.scrollView?.ts_addRefreshAction(refreshHeader: TSCustomHooterNormalView(), refreshBlock: { [weak self] in
             self?.refresh()
-        }
+        })
+//        self.scrollView?.ts_addRefreshAction { [weak self] in
+//            self?.refresh()
+//            }.ts_refreshingImage(UIImage.init(named: "xiala")).ts_releaseLoadMoreText("hahaahhahah").ts_loadTextFontAndColor(UIFont.systemFont(ofSize: 16), UIColor.yellow).ts_noMoreDataText("这里没有数据了 还刷")
+//        self.scrollView?.ts_triggerRefreshing()
+        
         
 //        self.scrollView?.ts_addRefreshAction {
 //            [weak self] in
@@ -49,8 +57,8 @@ class ViewController:UIViewController{
 //            .ts_refreshingText("亲，正在努力刷新")
 //
 //
-        self.scrollView?.ts_footerTextColor(.yellow).ts_pullUpToRefreshText("哈哈哈").ts_noMoreDataText("nnnnn").ts_releaseLoadMoreText("撒手试试").ts_loaddingText("正在刷新")
-        self.scrollView?.ts_headerIdleImage(#imageLiteral(resourceName: "xiala"))
+//        self.scrollView?.ts_footerTextColor(.yellow).ts_pullUpToRefreshText("哈哈哈").ts_noMoreDataText("nnnnn").ts_releaseLoadMoreText("撒手试试").ts_loaddingText("正在刷新")
+//        self.scrollView?.ts_headerIdleImage(#imageLiteral(resourceName: "xiala"))
 //        self.scrollView?.ts_headerSucImage(#imageLiteral(resourceName: "success.png"))
 //        self.scrollView?.ts_headerPullingIndicatorImage(UIImageView(image: #imageLiteral(resourceName: "songkai")))
         
@@ -71,7 +79,7 @@ class ViewController:UIViewController{
     }
     
     @objc func endRefresing() {
-        self.scrollView?.ts_endRefreshingAndLoading(isNoMoreData: false)
+        self.scrollView?.ts_endRefreshingAndLoading(false)
     }
     
     func loadMore() {
@@ -79,7 +87,7 @@ class ViewController:UIViewController{
     }
     
     @objc func endLoadMore() {
-        self.scrollView?.ts_endRefreshingAndLoading(isNoMoreData: false)
+        self.scrollView?.ts_endRefreshingAndLoading(true)
     }
     
     func setUpScrollView(){

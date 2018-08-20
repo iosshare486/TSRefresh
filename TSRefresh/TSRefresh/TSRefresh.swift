@@ -15,11 +15,13 @@ extension UIScrollView {
     ///   - refreshHeader: 下拉刷新动效View必须继承TSRefreshHeader并且要实现TSRefreshHeaderProtocol，不传值的时候默认使用 DefaultGTMRefreshHeader
     ///   - refreshBlock: 刷新数据Block
     @discardableResult
-    final public func ts_addRefreshAction(refreshHeader: GTMRefreshHeader? = DefaultGTMRefreshHeader(), refreshBlock:@escaping () -> Void) -> UIScrollView {
-        return self.gtm_addRefreshHeaderView(refreshHeader: refreshHeader, refreshBlock: refreshBlock)
+    final public func ts_addRefreshAction(refreshHeader: MJRefreshHeader? = MJRefreshNormalHeader(), refreshBlock:@escaping () -> Void) -> UIScrollView {
+        self.mj_header = refreshHeader
+        refreshHeader?.refreshingBlock = refreshBlock
+        return self
     }
     
-    
+     
     
     /// 添加上拉加载
     ///
@@ -27,49 +29,38 @@ extension UIScrollView {
     ///   - loadMoreFooter: 上拉加载动效View必须继承GTMLoadMoreFooter，不传值的时候默认使用 DefaultGTMLoadMoreFooter
     ///   - refreshBlock: 加载更多数据Block
     @discardableResult
-    final public func ts_addLoadMoreAction(loadMoreFooter: GTMLoadMoreFooter? = DefaultGTMLoadMoreFooter(), loadMoreBlock:@escaping () -> Void) -> UIScrollView {
-        return self.gtm_addLoadMoreFooterView(loadMoreFooter: loadMoreFooter, loadMoreBlock: loadMoreBlock)
+    final public func ts_addLoadMoreAction(loadMoreFooter: MJRefreshFooter? = MJRefreshBackNormalFooter(), loadMoreBlock:@escaping () -> Void) -> UIScrollView {
+        self.mj_footer = loadMoreFooter
+        loadMoreFooter?.refreshingBlock = loadMoreBlock
+        return self
     }
     
-    //隐藏和显示上拉加载View
+    /// 隐藏和显示上拉加载View
     final public func ts_isShowLoadMore(isShow: Bool) {
-        self.gtmFooter?.isHidden = !isShow
-    }
-    
-    // 自定义footer文字
-    final public func ts_setupFooterText(pullUpToRefreshText: String? = nil,
-                                      loaddingText: String? = nil,
-                                      noMoreDataText: String? = nil,
-                                      releaseLoadMoreText: String? = nil) {
-
-        guard let defaultFooter = self.value(forKey: "gtmFooter") as? UIView, defaultFooter is DefaultGTMLoadMoreFooter else {
-            return
-        }
-        let footer = defaultFooter as! DefaultGTMLoadMoreFooter
-        if let txt = pullUpToRefreshText {
-            footer.pullUpToRefreshText = txt
-            footer.messageLabel.text = txt
-        }
-        if let txt = loaddingText {
-            footer.loaddingText = txt
-        }
-        if let txt = noMoreDataText {
-            footer.noMoreDataText = txt
-        }
-        if let txt = releaseLoadMoreText {
-            footer.releaseLoadMoreText = txt
+        if self.mj_footer != nil {
+            self.mj_footer.isHidden = !isShow
         }
     }
     
+    /// 开始下拉刷新
     final public func ts_triggerRefreshing(){
-        self.triggerRefreshing()
+        if self.mj_header != nil {
+            self.mj_header.beginRefreshing()
+        }
     }
     
-    final public func ts_endRefreshingAndLoading(isNoMoreData: Bool) {
-        if let _ = self.gtmFooter {
-            self.endLoadMore(isNoMoreData: isNoMoreData)
+    /// 停止刷新，包括上拉刷新和下拉刷新
+    final public func ts_endRefreshingAndLoading(_ isNoMore : Bool) {
+        if self.mj_header != nil {
+            self.mj_header.endRefreshing()
         }
-        self.endRefreshing(isSuccess: true)
+        if self.mj_footer != nil {
+            if isNoMore {
+                self.mj_footer.endRefreshingWithNoMoreData()
+            } else {
+                self.mj_footer.endRefreshing()
+            }
+        }
     }
 }
 

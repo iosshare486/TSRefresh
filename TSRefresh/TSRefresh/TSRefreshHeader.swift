@@ -19,27 +19,53 @@ import UIKit
     @objc optional func tsToWillRefreshState()
     /// 下拉高度／触发高度 值改变
     @objc optional func tsChangePullingPercent(percent: CGFloat)
-    /// 开始结束动画前执行
-    @objc optional func tsWillBeginEndRefershing(isSuccess: Bool)
-    /// 结束动画完成后执行
-    @objc optional func tsWillCompleteEndRefershing()
     
     /// 控件的高度
     ///
     /// - Returns: 控件的高度
-    func tsContentHeight() -> CGFloat
+    @objc optional func tsContentHeight() -> CGFloat
 }
 
-open class TSRefreshHeader: GTMRefreshHeader , SubGTMRefreshHeaderProtocol{
+open class TSRefreshHeader: MJRefreshStateHeader{
     
     public var tsSubProtocol: TSRefreshHeaderProtocol? {
         get { return self as? TSRefreshHeaderProtocol }
+    }
+    
+    override open var state: MJRefreshState {
+        didSet {
+            if state == .idle {
+                if oldValue == .refreshing {
+                    
+                } else {
+                    self.tsSubProtocol?.tsToNormalState?()
+                }
+            } else if state == .refreshing {
+                self.tsSubProtocol?.tsToRefreshingState?()
+            } else if state == .pulling {
+                self.tsSubProtocol?.tsToPullingState?()
+            } else if state == .willRefresh {
+                self.tsSubProtocol?.tsToWillRefreshState?()
+            }
+        }
+    }
+    
+    override open var pullingPercent: CGFloat {
+        didSet {
+            self.tsSubProtocol?.tsChangePullingPercent?(percent: pullingPercent)
+        }
     }
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
     }
     
+    open override func prepare() {
+        super.prepare()
+        if let contentHeight = self.tsSubProtocol?.tsContentHeight?() {
+            self.mj_h = contentHeight
+        }
+    }
     
     override open func layoutSubviews() {
         super.layoutSubviews()
@@ -47,32 +73,6 @@ open class TSRefreshHeader: GTMRefreshHeader , SubGTMRefreshHeaderProtocol{
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    public func toNormalState() {
-        self.tsSubProtocol?.tsToNormalState?()
-    }
-    public func toRefreshingState() {
-        self.tsSubProtocol?.tsToRefreshingState?()
-    }
-    public func toPullingState() {
-        self.tsSubProtocol?.tsToPullingState?()
-    }
-    public func toWillRefreshState() {
-        self.tsSubProtocol?.tsToWillRefreshState?()
-    }
-    public func changePullingPercent(percent: CGFloat) {
-        self.tsSubProtocol?.tsChangePullingPercent?(percent: percent)
-    }
-    public func willBeginEndRefershing(isSuccess: Bool) {
-        self.tsSubProtocol?.tsWillBeginEndRefershing?(isSuccess: isSuccess)
-    }
-    public func willCompleteEndRefershing() {
-        self.tsSubProtocol?.tsWillCompleteEndRefershing?()
-    }
-    
-    public func contentHeight() -> CGFloat {
-        return self.tsSubProtocol?.tsContentHeight() ?? 0
     }
     
 }
