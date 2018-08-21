@@ -18,6 +18,11 @@
 		B25CEC1520DB902100F47F17 /* TSRefreshUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25CEC1420DB902100F47F17 /* TSRefreshUITests.swift */; };
 		B25CEC2420DB98DA00F47F17 /* TSRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25CEC2320DB98DA00F47F17 /* TSRefresh.swift */; };
 		B25CEC3F20DBA23D00F47F17 /* TSRefreshStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25CEC3E20DBA23D00F47F17 /* TSRefreshStyle.swift */; };
+		B27D529A212C0E2E0080638F /* TSLoadMoreBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = B27D5299212C0E2E0080638F /* TSLoadMoreBackFooter.m */; };
+		B27D529D212C0E510080638F /* TSLoadMoreAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = B27D529C212C0E510080638F /* TSLoadMoreAutoFooter.m */; };
+		B27D52A0212C0EAA0080638F /* TSRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = B27D529F212C0EAA0080638F /* TSRefreshHeader.m */; };
+		B27D52A3212C0EBB0080638F /* UIScrollView+TSRefreshStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = B27D52A2212C0EBB0080638F /* UIScrollView+TSRefreshStyle.m */; };
+		B27D52A6212C0ECB0080638F /* UIScrollView+TSRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = B27D52A5212C0ECB0080638F /* UIScrollView+TSRefresh.m */; };
 		B282F858212A6945005508FE /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = B282F82A212A6945005508FE /* UIScrollView+MJRefresh.m */; };
 		B282F859212A6945005508FE /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = B282F82B212A6945005508FE /* MJRefreshConst.m */; };
 		B282F85A212A6945005508FE /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B282F82F212A6945005508FE /* MJRefresh.bundle */; };
@@ -77,7 +82,17 @@
 		B25CEC1620DB902100F47F17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B25CEC2320DB98DA00F47F17 /* TSRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSRefresh.swift; sourceTree = "<group>"; };
 		B25CEC3E20DBA23D00F47F17 /* TSRefreshStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSRefreshStyle.swift; sourceTree = "<group>"; };
-		B282F825212A682C005508FE /* TSRefresh-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "TSRefresh-Bridging-Header.h"; path = "TSRefresh/TSRefresh-Bridging-Header.h"; sourceTree = "<group>"; };
+		B27D5298212C0E2E0080638F /* TSLoadMoreBackFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSLoadMoreBackFooter.h; sourceTree = "<group>"; };
+		B27D5299212C0E2E0080638F /* TSLoadMoreBackFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSLoadMoreBackFooter.m; sourceTree = "<group>"; };
+		B27D529B212C0E510080638F /* TSLoadMoreAutoFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSLoadMoreAutoFooter.h; sourceTree = "<group>"; };
+		B27D529C212C0E510080638F /* TSLoadMoreAutoFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSLoadMoreAutoFooter.m; sourceTree = "<group>"; };
+		B27D529E212C0EAA0080638F /* TSRefreshHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSRefreshHeader.h; sourceTree = "<group>"; };
+		B27D529F212C0EAA0080638F /* TSRefreshHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSRefreshHeader.m; sourceTree = "<group>"; };
+		B27D52A1212C0EBB0080638F /* UIScrollView+TSRefreshStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TSRefreshStyle.h"; sourceTree = "<group>"; };
+		B27D52A2212C0EBB0080638F /* UIScrollView+TSRefreshStyle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TSRefreshStyle.m"; sourceTree = "<group>"; };
+		B27D52A4212C0ECB0080638F /* UIScrollView+TSRefresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TSRefresh.h"; sourceTree = "<group>"; };
+		B27D52A5212C0ECB0080638F /* UIScrollView+TSRefresh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TSRefresh.m"; sourceTree = "<group>"; };
+		B27D52A8212C16C20080638F /* TSLoadMoreProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSLoadMoreProtocol.h; sourceTree = "<group>"; };
 		B282F82A212A6945005508FE /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		B282F82B212A6945005508FE /* MJRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshConst.m; sourceTree = "<group>"; };
 		B282F82C212A6945005508FE /* UIScrollView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJExtension.h"; sourceTree = "<group>"; };
@@ -188,6 +203,7 @@
 		B25CEBF320DB901F00F47F17 /* TSRefresh */ = {
 			isa = PBXGroup;
 			children = (
+				B27D52A9212C329D0080638F /* SwiftCode */,
 				B25CEC2220DB910300F47F17 /* TSRefresh */,
 				B25CEBF420DB901F00F47F17 /* AppDelegate.swift */,
 				B25CEBF620DB901F00F47F17 /* ViewController.swift */,
@@ -196,7 +212,6 @@
 				B25CEBFB20DB902100F47F17 /* Assets.xcassets */,
 				B25CEBFD20DB902100F47F17 /* LaunchScreen.storyboard */,
 				B25CEC0020DB902100F47F17 /* Info.plist */,
-				B282F825212A682C005508FE /* TSRefresh-Bridging-Header.h */,
 			);
 			path = TSRefresh;
 			sourceTree = "<group>";
@@ -222,13 +237,39 @@
 		B25CEC2220DB910300F47F17 /* TSRefresh */ = {
 			isa = PBXGroup;
 			children = (
+				B27D528E212C0D660080638F /* Classes */,
 				B282F829212A6945005508FE /* MJRefresh */,
+			);
+			path = TSRefresh;
+			sourceTree = "<group>";
+		};
+		B27D528E212C0D660080638F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B27D5298212C0E2E0080638F /* TSLoadMoreBackFooter.h */,
+				B27D5299212C0E2E0080638F /* TSLoadMoreBackFooter.m */,
+				B27D529B212C0E510080638F /* TSLoadMoreAutoFooter.h */,
+				B27D529C212C0E510080638F /* TSLoadMoreAutoFooter.m */,
+				B27D529E212C0EAA0080638F /* TSRefreshHeader.h */,
+				B27D529F212C0EAA0080638F /* TSRefreshHeader.m */,
+				B27D52A1212C0EBB0080638F /* UIScrollView+TSRefreshStyle.h */,
+				B27D52A2212C0EBB0080638F /* UIScrollView+TSRefreshStyle.m */,
+				B27D52A4212C0ECB0080638F /* UIScrollView+TSRefresh.h */,
+				B27D52A5212C0ECB0080638F /* UIScrollView+TSRefresh.m */,
+				B27D52A8212C16C20080638F /* TSLoadMoreProtocol.h */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		B27D52A9212C329D0080638F /* SwiftCode */ = {
+			isa = PBXGroup;
+			children = (
 				B25CEC2320DB98DA00F47F17 /* TSRefresh.swift */,
 				B25CEC3E20DBA23D00F47F17 /* TSRefreshStyle.swift */,
 				B221974820E1D96E0009DFD5 /* TSRefreshHeader.swift */,
 				B221974C20E1E9580009DFD5 /* TSLoadMoreFooter.swift */,
 			);
-			path = TSRefresh;
+			path = SwiftCode;
 			sourceTree = "<group>";
 		};
 		B282F829212A6945005508FE /* MJRefresh */ = {
@@ -462,11 +503,13 @@
 			files = (
 				B221974D20E1E9580009DFD5 /* TSLoadMoreFooter.swift in Sources */,
 				B282F85C212A6945005508FE /* NSBundle+MJRefresh.m in Sources */,
+				B27D529A212C0E2E0080638F /* TSLoadMoreBackFooter.m in Sources */,
 				B282F869212A6945005508FE /* MJRefreshBackFooter.m in Sources */,
 				B282F860212A6945005508FE /* MJRefreshBackNormalFooter.m in Sources */,
 				B282F85E212A6945005508FE /* MJRefreshBackGifFooter.m in Sources */,
 				B282F85B212A6945005508FE /* UIScrollView+MJExtension.m in Sources */,
 				B282F862212A6945005508FE /* MJRefreshAutoGifFooter.m in Sources */,
+				B27D52A0212C0EAA0080638F /* TSRefreshHeader.m in Sources */,
 				B282F861212A6945005508FE /* MJRefreshAutoStateFooter.m in Sources */,
 				B25CEBF720DB901F00F47F17 /* ViewController.swift in Sources */,
 				B221974920E1D96E0009DFD5 /* TSRefreshHeader.swift in Sources */,
@@ -474,13 +517,16 @@
 				B282F858212A6945005508FE /* UIScrollView+MJRefresh.m in Sources */,
 				B282F86D212ACD5D005508FE /* TSCustomFooterNormalView.swift in Sources */,
 				B282F86B212A6945005508FE /* MJRefreshComponent.m in Sources */,
+				B27D529D212C0E510080638F /* TSLoadMoreAutoFooter.m in Sources */,
 				B282F864212A6945005508FE /* MJRefreshNormalHeader.m in Sources */,
 				B282F863212A6945005508FE /* MJRefreshAutoNormalFooter.m in Sources */,
 				B25CEBF520DB901F00F47F17 /* AppDelegate.swift in Sources */,
 				B25CEC2420DB98DA00F47F17 /* TSRefresh.swift in Sources */,
 				B282F85D212A6945005508FE /* UIView+MJExtension.m in Sources */,
 				B282F867212A6945005508FE /* MJRefreshFooter.m in Sources */,
+				B27D52A3212C0EBB0080638F /* UIScrollView+TSRefreshStyle.m in Sources */,
 				B282F865212A6945005508FE /* MJRefreshStateHeader.m in Sources */,
+				B27D52A6212C0ECB0080638F /* UIScrollView+TSRefresh.m in Sources */,
 				B282F868212A6945005508FE /* MJRefreshHeader.m in Sources */,
 				B282F866212A6945005508FE /* MJRefreshGifHeader.m in Sources */,
 				B25CEC3F20DBA23D00F47F17 /* TSRefreshStyle.swift in Sources */,

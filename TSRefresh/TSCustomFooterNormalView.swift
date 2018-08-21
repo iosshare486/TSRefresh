@@ -15,7 +15,7 @@ class TSCustomFooterNormalView: TSRefreshHeader {
 extension TSCustomFooterNormalView : TSRefreshHeaderProtocol {
     
     func tsToPullingState() {
-        self.backgroundColor = .red
+        
     }
 }
 
@@ -28,6 +28,6 @@ class TSCustomHooterNormalView: TSRefreshHeader {
 extension TSCustomHooterNormalView : TSRefreshHeaderProtocol {
     
     func tsToPullingState() {
-        self.backgroundColor = .red
+        
     }
 }
