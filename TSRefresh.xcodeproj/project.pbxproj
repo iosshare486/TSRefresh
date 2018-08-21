@@ -77,7 +77,7 @@
 		B25CEC1620DB902100F47F17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B25CEC2320DB98DA00F47F17 /* TSRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSRefresh.swift; sourceTree = "<group>"; };
 		B25CEC3E20DBA23D00F47F17 /* TSRefreshStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSRefreshStyle.swift; sourceTree = "<group>"; };
-		B282F825212A682C005508FE /* TSRefresh-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TSRefresh-Bridging-Header.h"; sourceTree = "<group>"; };
+		B282F825212A682C005508FE /* TSRefresh-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "TSRefresh-Bridging-Header.h"; path = "TSRefresh/TSRefresh-Bridging-Header.h"; sourceTree = "<group>"; };
 		B282F82A212A6945005508FE /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		B282F82B212A6945005508FE /* MJRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshConst.m; sourceTree = "<group>"; };
 		B282F82C212A6945005508FE /* UIScrollView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJExtension.h"; sourceTree = "<group>"; };
@@ -196,6 +196,7 @@
 				B25CEBFB20DB902100F47F17 /* Assets.xcassets */,
 				B25CEBFD20DB902100F47F17 /* LaunchScreen.storyboard */,
 				B25CEC0020DB902100F47F17 /* Info.plist */,
+				B282F825212A682C005508FE /* TSRefresh-Bridging-Header.h */,
 			);
 			path = TSRefresh;
 			sourceTree = "<group>";
@@ -226,7 +227,6 @@
 				B25CEC3E20DBA23D00F47F17 /* TSRefreshStyle.swift */,
 				B221974820E1D96E0009DFD5 /* TSRefreshHeader.swift */,
 				B221974C20E1E9580009DFD5 /* TSLoadMoreFooter.swift */,
-				B282F825212A682C005508FE /* TSRefresh-Bridging-Header.h */,
 			);
 			path = TSRefresh;
 			sourceTree = "<group>";
@@ -670,7 +670,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.caiqr.TSRefresh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "TSRefresh/TSRefresh/TSRefresh-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "TSRefresh/TSRefresh-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -693,7 +693,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.caiqr.TSRefresh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "TSRefresh/TSRefresh/TSRefresh-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "TSRefresh/TSRefresh-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
