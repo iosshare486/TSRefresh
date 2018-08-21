@@ -93,6 +93,7 @@
 		B27D52A4212C0ECB0080638F /* UIScrollView+TSRefresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TSRefresh.h"; sourceTree = "<group>"; };
 		B27D52A5212C0ECB0080638F /* UIScrollView+TSRefresh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TSRefresh.m"; sourceTree = "<group>"; };
 		B27D52A8212C16C20080638F /* TSLoadMoreProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSLoadMoreProtocol.h; sourceTree = "<group>"; };
+		B27D52AA212C34010080638F /* TSRefresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSRefresh.h; sourceTree = "<group>"; };
 		B282F82A212A6945005508FE /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		B282F82B212A6945005508FE /* MJRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshConst.m; sourceTree = "<group>"; };
 		B282F82C212A6945005508FE /* UIScrollView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJExtension.h"; sourceTree = "<group>"; };
@@ -257,6 +258,7 @@
 				B27D52A4212C0ECB0080638F /* UIScrollView+TSRefresh.h */,
 				B27D52A5212C0ECB0080638F /* UIScrollView+TSRefresh.m */,
 				B27D52A8212C16C20080638F /* TSLoadMoreProtocol.h */,
+				B27D52AA212C34010080638F /* TSRefresh.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
