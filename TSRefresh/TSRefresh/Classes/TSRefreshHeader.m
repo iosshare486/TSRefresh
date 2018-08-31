@@ -35,6 +35,10 @@
             if ([self.delegate respondsToSelector:@selector(tsToNormalState)]) {
                 [self.delegate tsToNormalState];
             }
+        } else {
+            if ([self.delegate respondsToSelector:@selector(tsToRefreshingState)]) {
+                [self.delegate tsToRefreshingState];
+            }
         }
     } else if (state == MJRefreshStateRefreshing) {
         if ([self.delegate respondsToSelector:@selector(tsToRefreshingState)]) {
