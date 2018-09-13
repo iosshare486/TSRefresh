@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface UIScrollView (TSRefreshStyle)
+
+/**
+ 配置上拉加载和下拉刷新
+ */
+- (void)configCustom;
+
 /**
  下拉默认文字
 

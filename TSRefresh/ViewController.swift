@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class ViewController:UIViewController{
     var scrollView:UIScrollView?
     override func viewDidLoad() {
@@ -34,9 +33,15 @@ class ViewController:UIViewController{
 //
 //        }
 //
-        self.scrollView?.ts_addRefreshAction(refreshHeader: TSCustomHooterNormalView(), refreshBlock: { [weak self] in
-            self?.refresh()
+        self.scrollView?.ts_refreshingTextFontAndColor(UIFont.systemFont(ofSize: 20), color: .red)
+        self.scrollView?.ts_refreshingText("正在刷洗哦")
+        self.scrollView?.ts_loaddingText("lalalalalall").ts_noMoreDataText("meiyoule").ts_loadTextFontAndColor(UIFont.systemFont(ofSize: 25), color: .yellow).ts_releaseLoadMoreText("hahahah")
+        self.scrollView?.ts_addRefreshAction({
+            self.refresh()
+        }).ts_addLoadMoreAction({
+            self.loadMore()
         })
+        self.scrollView?.ts_pullDown(toRefreshText: "123")
 //        self.scrollView?.ts_addRefreshAction { [weak self] in
 //            self?.refresh()
 //            }.ts_refreshingImage(UIImage.init(named: "xiala")).ts_releaseLoadMoreText("hahaahhahah").ts_loadTextFontAndColor(UIFont.systemFont(ofSize: 16), UIColor.yellow).ts_noMoreDataText("这里没有数据了 还刷")

@@ -7,7 +7,7 @@
 //
 
 #import "UIScrollView+TSRefresh.h"
-
+#import "UIScrollView+TSRefreshStyle.h"
 @implementation UIScrollView (TSRefresh)
 
 
@@ -20,6 +20,7 @@
 - (UIScrollView *)ts_addRefreshAction:(void (^)(void))refreshBlock {
     
     self.mj_header = [[MJRefreshNormalHeader alloc] init];
+    [self configCustom];
     self.mj_header.refreshingBlock = refreshBlock;
     
     return self;
@@ -35,6 +36,7 @@
 - (UIScrollView *)ts_addRefreshAction:(void (^)(void))refreshBlock headerView:(MJRefreshHeader *)headerView {
     
     self.mj_header = headerView;
+    [self configCustom];
     self.mj_header.refreshingBlock = refreshBlock;
     
     return self;
@@ -50,6 +52,7 @@
 - (UIScrollView *)ts_addLoadMoreAction:(void (^)(void))loadMoreBlock {
     
     self.mj_footer = [[MJRefreshBackNormalFooter alloc] init];
+    [self configCustom];
     self.mj_footer.refreshingBlock = loadMoreBlock;
     return self;
 }
@@ -64,6 +67,7 @@
 - (UIScrollView *)ts_addLoadMoreAction:(void (^)(void))loadMoreBlock loadMoreFooter:(MJRefreshFooter *)footer {
     
     self.mj_footer = footer;
+    [self configCustom];
     self.mj_footer.refreshingBlock = loadMoreBlock;
     
     return self;
