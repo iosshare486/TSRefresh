@@ -106,7 +106,7 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-   s.resources = "TSRefresh/TSRefresh/**/*"
+   s.resources = "TSRefresh/TSRefresh/MJRefresh/MJRefresh.bundle"
 
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
