@@ -34,7 +34,6 @@ static const NSString * TSPullImageNameKey = @"TSPullImageNameKey";
 {
     if (normalText != self.normalText) {
         // 删除旧的，添加新的
-        self.normalText = nil;
         if (self.mj_header != nil) {
             [(MJRefreshStateHeader *)self.mj_header setTitle:normalText forState:MJRefreshStateIdle];
         }
