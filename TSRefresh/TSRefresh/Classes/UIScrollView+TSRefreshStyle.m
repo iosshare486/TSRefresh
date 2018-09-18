@@ -360,7 +360,7 @@ static const NSString * TSPullImageNameKey = @"TSPullImageNameKey";
 {
     if (pullReleaseLoadMore != self.pullReleaseLoadMore) {
         // 删除旧的，添加新的
-            [(MJRefreshBackNormalFooter *)self.mj_footer setTitle:self.pullReleaseLoadMore forState:MJRefreshStatePulling];
+            [(MJRefreshBackNormalFooter *)self.mj_footer setTitle:pullReleaseLoadMore forState:MJRefreshStatePulling];
         if (self.mj_footer != nil) {
         }
         // 存储新的
@@ -378,7 +378,7 @@ static const NSString * TSPullImageNameKey = @"TSPullImageNameKey";
     if (pullLoadTextColor != self.pullLoadTextColor) {
         // 删除旧的，添加新的
         if (self.mj_footer != nil) {
-            ((MJRefreshBackNormalFooter *)self.mj_footer).stateLabel.textColor = self.pullLoadTextColor;
+            ((MJRefreshBackNormalFooter *)self.mj_footer).stateLabel.textColor = pullLoadTextColor;
         }
         // 存储新的
         objc_setAssociatedObject(self, &TSPullLoadTextColorNameKey,
@@ -395,7 +395,7 @@ static const NSString * TSPullImageNameKey = @"TSPullImageNameKey";
     if (pullLoadTextFont != self.pullLoadTextFont) {
         // 删除旧的，添加新的
         if (self.mj_footer != nil) {
-            ((MJRefreshBackNormalFooter *)self.mj_footer).stateLabel.font = self.pullLoadTextFont;
+            ((MJRefreshBackNormalFooter *)self.mj_footer).stateLabel.font = pullLoadTextFont;
         }
         // 存储新的
         objc_setAssociatedObject(self, &TSPullLoadTextFontNameKey,
@@ -412,7 +412,7 @@ static const NSString * TSPullImageNameKey = @"TSPullImageNameKey";
     if (pullImageName != self.pullImageName) {
         // 删除旧的，添加新的
         if (self.mj_footer != nil) {
-            ((MJRefreshBackNormalFooter *)self.mj_footer).arrowView.image = self.pullImageName;
+            ((MJRefreshBackNormalFooter *)self.mj_footer).arrowView.image = pullImageName;
         }
         // 存储新的
         objc_setAssociatedObject(self, &TSPullImageNameKey,
