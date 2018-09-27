@@ -91,7 +91,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "TSRefresh/TSRefresh/MJRefresh/**/*", "TSRefresh/TSRefresh/**/*"
+  s.source_files  = "TSRefresh/TSRefresh/**/*"
   #s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
@@ -106,7 +106,7 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-   s.resources = "TSRefresh/TSRefresh/MJRefresh/MJRefresh.bundle"
+  #s.resources = "TSRefresh/TSRefresh/MJRefresh/MJRefresh.bundle"
 
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
@@ -136,7 +136,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  #s.dependency "Alamofire"
+  s.dependency "MJRefresh"
   #s.dependency "HandyJSON"
   #s.dependency "ReachabilitySwift"
 

@@ -6,7 +6,7 @@
 //  Copyright © 2018年 caiqr. All rights reserved.
 //
 
-#import "MJRefresh.h"
+
 #import "TSRefreshHeader.h"
 #import "UIScrollView+TSRefresh.h"
 #import "UIScrollView+TSRefreshStyle.h"

@@ -6,7 +6,7 @@
 //  Copyright © 2018年 caiqr. All rights reserved.
 //
 
-#import "MJRefreshStateHeader.h"
+#import <MJRefresh/MJRefresh.h>
 
 @protocol TSRefreshHeaderProtocol <NSObject>
 @optional

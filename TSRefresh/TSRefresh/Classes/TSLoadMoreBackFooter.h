@@ -6,7 +6,7 @@
 //  Copyright © 2018年 caiqr. All rights reserved.
 //
 
-#import "MJRefreshBackNormalFooter.h"
+#import <MJRefresh/MJRefresh.h>
 
 @interface TSLoadMoreBackFooter : MJRefreshBackNormalFooter
 
