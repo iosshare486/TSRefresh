@@ -12,12 +12,16 @@ import UIKit
 
 class ViewController:UIViewController{
     var scrollView:UIScrollView?
+    var csBtn = UIButton.init(type: .custom)
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         self.automaticallyAdjustsScrollViewInsets = false
         setUpScrollView()
-        
+        self.view.addSubview(csBtn)
+        csBtn.frame = CGRect(x: 300, y: 300, width: 30, height: 30)
+        csBtn.backgroundColor = .red
+        csBtn.addTarget(self, action: #selector(onClick), for: .touchUpInside)
         
 //        let refreshHeaders = YoukuRefreshHeader()
 //        self.scrollView?.ts_addRefreshAction(refreshHeader: refreshHeaders, refreshBlock: { [weak self] in
@@ -40,12 +44,13 @@ class ViewController:UIViewController{
         
         self.scrollView?.ts_refreshingText("正在刷洗哦")
         self.scrollView?.ts_loaddingText("lalalalalall").ts_noMoreDataText("meiyoule").ts_loadTextFontAndColor(UIFont.systemFont(ofSize: 25), color: .yellow).ts_releaseLoadMoreText("hahahah")
+        self.scrollView?.ts_pullDown(toRefreshText: "123")
         self.scrollView?.ts_addRefreshAction({
             self.refresh()
         }).ts_addLoadMoreAction({
             self.loadMore()
         })
-        self.scrollView?.ts_pullDown(toRefreshText: "123")
+        
 //        self.scrollView?.ts_addRefreshAction { [weak self] in
 //            self?.refresh()
 //            }.ts_refreshingImage(UIImage.init(named: "xiala")).ts_releaseLoadMoreText("hahaahhahah").ts_loadTextFontAndColor(UIFont.systemFont(ofSize: 16), UIColor.yellow).ts_noMoreDataText("这里没有数据了 还刷")
@@ -85,6 +90,13 @@ class ViewController:UIViewController{
     // MARK: Test
     func refresh() {
         perform(#selector(endRefresing), with: nil, afterDelay: 3)
+    }
+    
+    @objc func onClick () {
+        
+        if !(self.scrollView?.ts_headerIsRefreshing())! {
+            self.scrollView?.ts_triggerRefreshing()
+        }
     }
     
     @objc func endRefresing() {

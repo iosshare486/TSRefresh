@@ -21,9 +21,10 @@
     
     self.mj_header = [[MJRefreshNormalHeader alloc] init];
     [self configCustom];
+    [self ts_headerRefreshing:NO];
     __weak typeof(self) weakSelf = self;
     self.mj_header.refreshingBlock = ^{
-        weakSelf.headerIsRefreshing = YES;
+        [weakSelf ts_headerRefreshing:YES];
         refreshBlock();
     };
     
@@ -41,9 +42,10 @@
     
     self.mj_header = headerView;
     [self configCustom];
+    [self ts_headerRefreshing:NO];
     __weak typeof(self) weakSelf = self;
     self.mj_header.refreshingBlock = ^{
-        weakSelf.headerIsRefreshing = YES;
+        [weakSelf ts_headerRefreshing:YES];
         refreshBlock();
     };
     
@@ -121,7 +123,7 @@
     if (self.mj_header != nil) {
         __weak typeof(self) weakSelf = self;
         [self.mj_header endRefreshingWithCompletionBlock:^{
-            weakSelf.headerIsRefreshing = NO;
+            [weakSelf ts_headerRefreshing:NO];
         }];
     }
     if (self.mj_footer != nil) {

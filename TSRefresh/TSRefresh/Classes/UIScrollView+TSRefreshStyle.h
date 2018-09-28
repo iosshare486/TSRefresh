@@ -20,14 +20,9 @@
 
  @return <#return value description#>
  */
-@property (nonatomic, readwrite) BOOL headerIsRefreshing;
+- (BOOL)ts_headerIsRefreshing;
 
-/**
- 上拉加载是否是刷新中
-
- @return <#return value description#>
- */
-- (BOOL)ts_footerIsRefreshing;
+- (void)ts_headerRefreshing:(BOOL)isRefreshing;
 
 /**
  下拉默认文字

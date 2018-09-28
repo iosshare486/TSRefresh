@@ -29,20 +29,28 @@ static const NSString * TSPullReleaseLoadMoreNameKey = @"TSPullReleaseLoadMoreNa
 static const NSString * TSPullLoadTextColorNameKey = @"TSPullLoadTextColorNameKey";
 static const NSString * TSPullLoadTextFontNameKey = @"TSPullLoadTextFontNameKey";
 static const NSString * TSPullImageNameKey = @"TSPullImageNameKey";
-static const NSString * TSHeaderIsRefreshNameKey = @"TSPullImageNameKey";
+static const NSString * TSHeaderIsRefreshNameKey = @"TSHeaderIsRefreshNameKey";
 
 
 - (void)setHeaderIsRefreshing:(BOOL)headerIsRefreshing
 {
-    if (headerIsRefreshing != self.headerIsRefreshing) {
+    NSNumber *number = [NSNumber numberWithBool: headerIsRefreshing];
         // 存储新的
-        objc_setAssociatedObject(self, &TSHeaderIsRefreshNameKey,
-                                 @(headerIsRefreshing), OBJC_ASSOCIATION_RETAIN);
-    }
+    objc_setAssociatedObject(self, &TSHeaderIsRefreshNameKey,
+                                 number, OBJC_ASSOCIATION_RETAIN);
 }
 - (BOOL)headerIsRefreshing
 {
-    return objc_getAssociatedObject(self, &TSHeaderIsRefreshNameKey);
+    NSNumber *number = objc_getAssociatedObject(self, &TSHeaderIsRefreshNameKey);
+    return [number boolValue];
+}
+
+- (BOOL)ts_headerIsRefreshing {
+    return self.headerIsRefreshing;
+}
+
+- (void)ts_headerRefreshing:(BOOL)isRefreshing {
+    self.headerIsRefreshing = isRefreshing;
 }
 
 /** 默认刷新状态文字 */
