@@ -16,6 +16,20 @@
 - (void)configCustom;
 
 /**
+ 是否是刷新中
+
+ @return <#return value description#>
+ */
+- (BOOL)ts_headerIsRefreshing;
+
+/**
+ 上拉加载是否是刷新中
+
+ @return <#return value description#>
+ */
+- (BOOL)ts_footerIsRefreshing;
+
+/**
  下拉默认文字
 
  @param text <#text description#>

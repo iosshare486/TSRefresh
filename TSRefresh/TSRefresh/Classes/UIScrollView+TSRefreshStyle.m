@@ -35,7 +35,7 @@ static const NSString * TSPullImageNameKey = @"TSPullImageNameKey";
 
  @return <#return value description#>
  */
-- (BOOL)headerIsRefreshing {
+- (BOOL)ts_headerIsRefreshing {
     if (!self.mj_header) {
         return NO;
     }
@@ -47,7 +47,7 @@ static const NSString * TSPullImageNameKey = @"TSPullImageNameKey";
 
  @return <#return value description#>
  */
-- (BOOL)footerIsRefreshing {
+- (BOOL)ts_footerIsRefreshing {
     if (!self.mj_footer) {
         return NO;
     }
