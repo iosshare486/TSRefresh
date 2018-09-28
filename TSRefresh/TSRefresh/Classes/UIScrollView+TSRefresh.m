@@ -21,7 +21,11 @@
     
     self.mj_header = [[MJRefreshNormalHeader alloc] init];
     [self configCustom];
-    self.mj_header.refreshingBlock = refreshBlock;
+    __weak typeof(self) weakSelf = self;
+    self.mj_header.refreshingBlock = ^{
+        weakSelf.headerIsRefreshing = YES;
+        refreshBlock();
+    };
     
     return self;
 }
@@ -37,7 +41,11 @@
     
     self.mj_header = headerView;
     [self configCustom];
-    self.mj_header.refreshingBlock = refreshBlock;
+    __weak typeof(self) weakSelf = self;
+    self.mj_header.refreshingBlock = ^{
+        weakSelf.headerIsRefreshing = YES;
+        refreshBlock();
+    };
     
     return self;
 }
@@ -100,9 +108,7 @@
  */
 - (void)ts_triggerRefreshing {
     if (self.mj_header != nil) {
-        [self.mj_header beginRefreshingWithCompletionBlock:^{
-            self.headerIsRefreshing = YES;
-        }];
+        [self.mj_header beginRefreshing];
     }
 }
 
@@ -113,9 +119,9 @@
  */
 - (void)ts_endRefreshingAndLoading:(BOOL)isNoMore {
     if (self.mj_header != nil) {
-        
+        __weak typeof(self) weakSelf = self;
         [self.mj_header endRefreshingWithCompletionBlock:^{
-            self.headerIsRefreshing = NO;
+            weakSelf.headerIsRefreshing = NO;
         }];
     }
     if (self.mj_footer != nil) {

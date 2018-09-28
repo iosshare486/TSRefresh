@@ -35,9 +35,6 @@ static const NSString * TSHeaderIsRefreshNameKey = @"TSPullImageNameKey";
 - (void)setHeaderIsRefreshing:(BOOL)headerIsRefreshing
 {
     if (headerIsRefreshing != self.headerIsRefreshing) {
-        if (!headerIsRefreshing) {
-            return;
-        }
         // 存储新的
         objc_setAssociatedObject(self, &TSHeaderIsRefreshNameKey,
                                  @(headerIsRefreshing), OBJC_ASSOCIATION_RETAIN);
