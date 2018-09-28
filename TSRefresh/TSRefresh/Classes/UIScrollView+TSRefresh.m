@@ -110,6 +110,7 @@
  */
 - (void)ts_triggerRefreshing {
     if (self.mj_header != nil) {
+        [self ts_headerRefreshing:YES];
         [self.mj_header beginRefreshing];
     }
 }

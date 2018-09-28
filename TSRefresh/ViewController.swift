@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class ViewController:UIViewController{
     var scrollView:UIScrollView?
     var csBtn = UIButton.init(type: .custom)
