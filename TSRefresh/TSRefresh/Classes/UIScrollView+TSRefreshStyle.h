@@ -20,7 +20,7 @@
 
  @return <#return value description#>
  */
-- (BOOL)ts_headerIsRefreshing;
+@property (nonatomic, readwrite) BOOL headerIsRefreshing;
 
 /**
  上拉加载是否是刷新中

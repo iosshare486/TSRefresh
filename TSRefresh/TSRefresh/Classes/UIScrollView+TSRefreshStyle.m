@@ -29,31 +29,26 @@ static const NSString * TSPullReleaseLoadMoreNameKey = @"TSPullReleaseLoadMoreNa
 static const NSString * TSPullLoadTextColorNameKey = @"TSPullLoadTextColorNameKey";
 static const NSString * TSPullLoadTextFontNameKey = @"TSPullLoadTextFontNameKey";
 static const NSString * TSPullImageNameKey = @"TSPullImageNameKey";
+static const NSString * TSHeaderIsRefreshNameKey = @"TSPullImageNameKey";
 
-/**
- 是不是下拉刷新中
 
- @return <#return value description#>
- */
-- (BOOL)ts_headerIsRefreshing {
-    if (!self.mj_header) {
-        return NO;
+- (void)setHeaderIsRefreshing:(BOOL)headerIsRefreshing
+{
+    if (headerIsRefreshing != self.headerIsRefreshing) {
+        if (!headerIsRefreshing) {
+            return;
+        }
+        // 存储新的
+        objc_setAssociatedObject(self, &TSHeaderIsRefreshNameKey,
+                                 @(headerIsRefreshing), OBJC_ASSOCIATION_RETAIN);
     }
-    return self.mj_header.isRefreshing;
+}
+- (BOOL)headerIsRefreshing
+{
+    return objc_getAssociatedObject(self, &TSHeaderIsRefreshNameKey);
 }
 
-/**
- 上拉加载 是不是下拉刷新中
-
- @return <#return value description#>
- */
-- (BOOL)ts_footerIsRefreshing {
-    if (!self.mj_footer) {
-        return NO;
-    }
-    return self.mj_footer.isRefreshing;
-}
-
+/** 默认刷新状态文字 */
 - (void)setNormalText:(NSString *)normalText
 {
     if (normalText != self.normalText) {

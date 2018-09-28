@@ -100,7 +100,9 @@
  */
 - (void)ts_triggerRefreshing {
     if (self.mj_header != nil) {
-        [self.mj_header beginRefreshing];
+        [self.mj_header beginRefreshingWithCompletionBlock:^{
+            self.headerIsRefreshing = YES;
+        }];
     }
 }
 
@@ -111,7 +113,10 @@
  */
 - (void)ts_endRefreshingAndLoading:(BOOL)isNoMore {
     if (self.mj_header != nil) {
-        [self.mj_header endRefreshing];
+        
+        [self.mj_header endRefreshingWithCompletionBlock:^{
+            self.headerIsRefreshing = NO;
+        }];
     }
     if (self.mj_footer != nil) {
         if (isNoMore) {
