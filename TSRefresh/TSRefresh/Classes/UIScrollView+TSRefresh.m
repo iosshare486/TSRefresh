@@ -74,6 +74,17 @@
 }
 
 /**
+ 是否显示下拉刷新
+ 
+ @param isShow <#isShow description#>
+ */
+- (void)ts_isShowRefresh:(BOOL)isShow {
+    if (self.mj_header != nil) {
+        self.mj_header.hidden = !isShow;
+    }
+}
+
+/**
  是否显示加载更多
  
  @param isShow <#isShow description#>

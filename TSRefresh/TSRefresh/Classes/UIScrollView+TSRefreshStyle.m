@@ -30,6 +30,30 @@ static const NSString * TSPullLoadTextColorNameKey = @"TSPullLoadTextColorNameKe
 static const NSString * TSPullLoadTextFontNameKey = @"TSPullLoadTextFontNameKey";
 static const NSString * TSPullImageNameKey = @"TSPullImageNameKey";
 
+/**
+ 是不是下拉刷新中
+
+ @return <#return value description#>
+ */
+- (BOOL)headerIsRefreshing {
+    if (!self.mj_header) {
+        return NO;
+    }
+    return self.mj_header.isRefreshing;
+}
+
+/**
+ 上拉加载 是不是下拉刷新中
+
+ @return <#return value description#>
+ */
+- (BOOL)footerIsRefreshing {
+    if (!self.mj_footer) {
+        return NO;
+    }
+    return self.mj_footer.isRefreshing;
+}
+
 - (void)setNormalText:(NSString *)normalText
 {
     if (normalText != self.normalText) {

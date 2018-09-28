@@ -15,9 +15,6 @@
 		B25CEBFF20DB902100F47F17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B25CEBFD20DB902100F47F17 /* LaunchScreen.storyboard */; };
 		B25CEC0A20DB902100F47F17 /* TSRefreshTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25CEC0920DB902100F47F17 /* TSRefreshTests.swift */; };
 		B25CEC1520DB902100F47F17 /* TSRefreshUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25CEC1420DB902100F47F17 /* TSRefreshUITests.swift */; };
-		B27D529A212C0E2E0080638F /* TSLoadMoreBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = B27D5299212C0E2E0080638F /* TSLoadMoreBackFooter.m */; };
-		B27D529D212C0E510080638F /* TSLoadMoreAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = B27D529C212C0E510080638F /* TSLoadMoreAutoFooter.m */; };
-		B27D52A0212C0EAA0080638F /* TSRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = B27D529F212C0EAA0080638F /* TSRefreshHeader.m */; };
 		B27D52A3212C0EBB0080638F /* UIScrollView+TSRefreshStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = B27D52A2212C0EBB0080638F /* UIScrollView+TSRefreshStyle.m */; };
 		B27D52A6212C0ECB0080638F /* UIScrollView+TSRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = B27D52A5212C0ECB0080638F /* UIScrollView+TSRefresh.m */; };
 /* End PBXBuildFile section */
@@ -55,17 +52,10 @@
 		B25CEC1420DB902100F47F17 /* TSRefreshUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSRefreshUITests.swift; sourceTree = "<group>"; };
 		B25CEC1620DB902100F47F17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B27B17C0214A4ECB001F8B9A /* TSRefresh-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TSRefresh-Bridging-Header.h"; sourceTree = "<group>"; };
-		B27D5298212C0E2E0080638F /* TSLoadMoreBackFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSLoadMoreBackFooter.h; sourceTree = "<group>"; };
-		B27D5299212C0E2E0080638F /* TSLoadMoreBackFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSLoadMoreBackFooter.m; sourceTree = "<group>"; };
-		B27D529B212C0E510080638F /* TSLoadMoreAutoFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSLoadMoreAutoFooter.h; sourceTree = "<group>"; };
-		B27D529C212C0E510080638F /* TSLoadMoreAutoFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSLoadMoreAutoFooter.m; sourceTree = "<group>"; };
-		B27D529E212C0EAA0080638F /* TSRefreshHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSRefreshHeader.h; sourceTree = "<group>"; };
-		B27D529F212C0EAA0080638F /* TSRefreshHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSRefreshHeader.m; sourceTree = "<group>"; };
 		B27D52A1212C0EBB0080638F /* UIScrollView+TSRefreshStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TSRefreshStyle.h"; sourceTree = "<group>"; };
 		B27D52A2212C0EBB0080638F /* UIScrollView+TSRefreshStyle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TSRefreshStyle.m"; sourceTree = "<group>"; };
 		B27D52A4212C0ECB0080638F /* UIScrollView+TSRefresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TSRefresh.h"; sourceTree = "<group>"; };
 		B27D52A5212C0ECB0080638F /* UIScrollView+TSRefresh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TSRefresh.m"; sourceTree = "<group>"; };
-		B27D52A8212C16C20080638F /* TSLoadMoreProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSLoadMoreProtocol.h; sourceTree = "<group>"; };
 		B27D52AA212C34010080638F /* TSRefresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSRefresh.h; sourceTree = "<group>"; };
 		D628A377C28A1E6877D1D5AE /* Pods_TSRefresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TSRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEFC4C52D2751F2883C14E9A /* Pods-TSRefresh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSRefresh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TSRefresh/Pods-TSRefresh.debug.xcconfig"; sourceTree = "<group>"; };
@@ -181,17 +171,10 @@
 		B27D528E212C0D660080638F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				B27D5298212C0E2E0080638F /* TSLoadMoreBackFooter.h */,
-				B27D5299212C0E2E0080638F /* TSLoadMoreBackFooter.m */,
-				B27D529B212C0E510080638F /* TSLoadMoreAutoFooter.h */,
-				B27D529C212C0E510080638F /* TSLoadMoreAutoFooter.m */,
-				B27D529E212C0EAA0080638F /* TSRefreshHeader.h */,
-				B27D529F212C0EAA0080638F /* TSRefreshHeader.m */,
 				B27D52A1212C0EBB0080638F /* UIScrollView+TSRefreshStyle.h */,
 				B27D52A2212C0EBB0080638F /* UIScrollView+TSRefreshStyle.m */,
 				B27D52A4212C0ECB0080638F /* UIScrollView+TSRefresh.h */,
 				B27D52A5212C0ECB0080638F /* UIScrollView+TSRefresh.m */,
-				B27D52A8212C16C20080638F /* TSLoadMoreProtocol.h */,
 				B27D52AA212C34010080638F /* TSRefresh.h */,
 			);
 			path = Classes;
@@ -378,10 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B27D529A212C0E2E0080638F /* TSLoadMoreBackFooter.m in Sources */,
-				B27D52A0212C0EAA0080638F /* TSRefreshHeader.m in Sources */,
 				B25CEBF720DB901F00F47F17 /* ViewController.swift in Sources */,
-				B27D529D212C0E510080638F /* TSLoadMoreAutoFooter.m in Sources */,
 				B25CEBF520DB901F00F47F17 /* AppDelegate.swift in Sources */,
 				B27D52A3212C0EBB0080638F /* UIScrollView+TSRefreshStyle.m in Sources */,
 				B27D52A6212C0ECB0080638F /* UIScrollView+TSRefresh.m in Sources */,

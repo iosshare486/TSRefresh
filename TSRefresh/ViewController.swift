@@ -45,7 +45,6 @@ class ViewController:UIViewController{
         }).ts_addLoadMoreAction({
             self.loadMore()
         })
-        self.scrollView?.ts_addRefreshAction(<#T##refreshBlock: (() -> Void)!##(() -> Void)!##() -> Void#>, headerView: <#T##MJRefreshHeader!#>)
         self.scrollView?.ts_pullDown(toRefreshText: "123")
 //        self.scrollView?.ts_addRefreshAction { [weak self] in
 //            self?.refresh()

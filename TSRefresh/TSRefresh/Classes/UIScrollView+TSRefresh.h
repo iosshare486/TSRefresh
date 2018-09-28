@@ -46,6 +46,13 @@
 - (UIScrollView *)ts_addLoadMoreAction:(void (^)(void))loadMoreBlock loadMoreFooter:(MJRefreshFooter *)footer;
 
 /**
+ 是否显示下拉刷新
+ 
+ @param isShow <#isShow description#>
+ */
+- (void)ts_isShowRefresh:(BOOL)isShow;
+
+/**
  是否显示加载更多
 
  @param isShow <#isShow description#>
