@@ -16,12 +16,12 @@
 /**
  headerView
  */
-@property (nonatomic, strong) NSString *headerViewClass;
+@property (nonatomic, strong) UIView *headerView;
 
 /**
  footerView
  */
-@property (nonatomic, strong) NSString *footerViewClass;
+@property (nonatomic, strong) UIView *footerView;
 
 // 下拉刷新
 /**

@@ -46,7 +46,7 @@ class ViewController: UIViewController{
         
         self.scrollView?.ts_addSharedRefreshAction({
             self.refresh()
-        }).ts_addLoadMoreAction({
+        }).ts_addSharedLoadMoreAction({
             self.loadMore()
         })
         

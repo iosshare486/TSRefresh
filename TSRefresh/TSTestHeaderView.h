@@ -6,7 +6,7 @@
 //  Copyright © 2018年 caiqr. All rights reserved.
 //
 
-#import "MJRefresh.h"
+#import <MJRefresh/MJRefresh.h>
 
 @interface TSTestHeaderView : MJRefreshStateHeader
 

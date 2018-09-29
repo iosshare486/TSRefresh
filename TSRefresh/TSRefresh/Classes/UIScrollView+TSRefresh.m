@@ -31,8 +31,8 @@
 }
 
 - (UIScrollView *)ts_addSharedRefreshAction:(void (^)(void))refreshBlock {
-    if (TSRefreshConfig.shared.headerViewClass != nil) {
-        UIView *headerView = [[NSClassFromString(TSRefreshConfig.shared.headerViewClass) alloc] init];
+    if (TSRefreshConfig.shared.headerView != nil) {
+        UIView *headerView = TSRefreshConfig.shared.headerView;
         if ([headerView isKindOfClass:MJRefreshHeader.class]) {
             self.mj_header = (MJRefreshHeader *)headerView;
             [self configSharedCustom];
@@ -87,8 +87,8 @@
 }
 
 - (UIScrollView *)ts_addSharedLoadMoreAction:(void (^)(void))loadMoreBlock {
-    if (TSRefreshConfig.shared.footerViewClass != nil) {
-        UIView *footerView = [[NSClassFromString(TSRefreshConfig.shared.footerViewClass) alloc] init];
+    if (TSRefreshConfig.shared.footerView != nil) {
+        UIView *footerView = TSRefreshConfig.shared.footerView;
         if ([footerView isKindOfClass:MJRefreshFooter.class]) {
             self.mj_footer = (MJRefreshFooter *)footerView;
             [self configSharedCustom];
