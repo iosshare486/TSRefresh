@@ -35,20 +35,20 @@
         UIView *headerView = TSRefreshConfig.shared.headerView;
         if ([headerView isKindOfClass:MJRefreshHeader.class]) {
             self.mj_header = (MJRefreshHeader *)headerView;
-            [self configSharedCustom];
-            [self ts_headerRefreshing:NO];
-            __weak typeof(self) weakSelf = self;
-            self.mj_header.refreshingBlock = ^{
-                [weakSelf ts_headerRefreshing:YES];
-                refreshBlock();
-            };
-            return  self;
         } else {
-            return [self ts_addRefreshAction:refreshBlock];
+            self.mj_header = [[MJRefreshNormalHeader alloc] init];
         }
     } else {
-        return [self ts_addRefreshAction:refreshBlock];
+        self.mj_header = [[MJRefreshNormalHeader alloc] init];
     }
+    [self configSharedCustom];
+    [self ts_headerRefreshing:NO];
+    __weak typeof(self) weakSelf = self;
+    self.mj_header.refreshingBlock = ^{
+        [weakSelf ts_headerRefreshing:YES];
+        refreshBlock();
+    };
+    return self;
 }
 
 /**
@@ -91,15 +91,15 @@
         UIView *footerView = TSRefreshConfig.shared.footerView;
         if ([footerView isKindOfClass:MJRefreshFooter.class]) {
             self.mj_footer = (MJRefreshFooter *)footerView;
-            [self configSharedCustom];
-            self.mj_footer.refreshingBlock = loadMoreBlock;
-            return self;
         } else {
-            return [self ts_addLoadMoreAction:loadMoreBlock];
+            self.mj_footer = [[MJRefreshBackNormalFooter alloc] init];
         }
     } else {
-        return [self ts_addLoadMoreAction:loadMoreBlock];
+        self.mj_footer = [[MJRefreshBackNormalFooter alloc] init];
     }
+    [self configSharedCustom];
+    self.mj_footer.refreshingBlock = loadMoreBlock;
+    return self;
 }
 
 
