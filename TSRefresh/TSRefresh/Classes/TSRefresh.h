@@ -8,8 +8,7 @@
 
 #import "UIScrollView+TSRefresh.h"
 #import "UIScrollView+TSRefreshStyle.h"
-
-
+#import "TSRefreshConfig.h"
 
 
 

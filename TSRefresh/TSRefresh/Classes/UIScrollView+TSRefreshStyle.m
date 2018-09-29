@@ -8,6 +8,7 @@
 
 #import "UIScrollView+TSRefreshStyle.h"
 #import "MJRefresh.h"
+#import "TSRefreshConfig.h"
 
 @implementation UIScrollView (TSRefreshStyle)
 
@@ -255,6 +256,65 @@ static const NSString * TSHeaderIsRefreshNameKey = @"TSHeaderIsRefreshNameKey";
         ((MJRefreshBackNormalFooter *)self.mj_footer).arrowView.image = self.pullImageName;
     }
     
+}
+
+- (void)configSharedCustom {
+    
+    if (TSRefreshConfig.shared.pullDownToRefreshText != nil) {
+        self.normalText = TSRefreshConfig.shared.pullDownToRefreshText;
+    }
+    
+    if (TSRefreshConfig.shared.releaseToRefreshText != nil) {
+        self.releaseToRefreshText = TSRefreshConfig.shared.releaseToRefreshText;
+    }
+    
+    if (TSRefreshConfig.shared.refreshingText != nil) {
+        self.refreshingText = TSRefreshConfig.shared.refreshingText;
+    }
+
+    if (TSRefreshConfig.shared.refreshingTextFont != nil) {
+        self.refreshTextFont = TSRefreshConfig.shared.refreshingTextFont;
+    }
+    
+    if (TSRefreshConfig.shared.refreshingTextColor != nil) {
+        self.refreshTextColor = TSRefreshConfig.shared.refreshingTextColor;
+    }
+
+    self.refreshStatusTextHiddenStatus = TSRefreshConfig.shared.hiddenRefreshingStatusText;
+    
+    self.refreshTimeTextHiddenStatus = TSRefreshConfig.shared.hiddenLastTimeText;
+    
+    if (TSRefreshConfig.shared.refreshingImage != nil) {
+        self.refreshPullImage = TSRefreshConfig.shared.refreshingImage;
+    }
+    
+    //footer
+    
+    if (TSRefreshConfig.shared.pullUpToRefreshText != nil) {
+        self.pullNormalText = TSRefreshConfig.shared.pullUpToRefreshText;
+    }
+    
+    if (TSRefreshConfig.shared.noMoreDataText != nil) {
+        self.pullNoMoreDataText = TSRefreshConfig.shared.noMoreDataText;
+    }
+    
+    if (TSRefreshConfig.shared.loaddingText != nil) {
+        self.pullLoaddingText = TSRefreshConfig.shared.loaddingText;
+    }
+    
+    if (TSRefreshConfig.shared.releaseLoadMoreText != nil) {
+        self.pullReleaseLoadMore = TSRefreshConfig.shared.releaseLoadMoreText;
+    }
+    if (TSRefreshConfig.shared.loadTextColor != nil) {
+        self.pullLoadTextColor = TSRefreshConfig.shared.loadTextColor;
+    }
+    if (TSRefreshConfig.shared.loadTextFont != nil) {
+        self.pullLoadTextFont = TSRefreshConfig.shared.loadTextFont;
+    }
+    if (TSRefreshConfig.shared.loadingImage != nil) {
+        self.pullImageName = TSRefreshConfig.shared.loadingImage;
+    }
+    [self configCustom];
 }
 
 /**

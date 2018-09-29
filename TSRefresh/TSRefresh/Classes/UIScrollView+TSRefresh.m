@@ -8,8 +8,8 @@
 
 #import "UIScrollView+TSRefresh.h"
 #import "UIScrollView+TSRefreshStyle.h"
+#import "TSRefresh.h"
 @implementation UIScrollView (TSRefresh)
-
 
 /**
  添加下拉刷新
@@ -18,7 +18,6 @@
  @return <#return value description#>
  */
 - (UIScrollView *)ts_addRefreshAction:(void (^)(void))refreshBlock {
-    
     self.mj_header = [[MJRefreshNormalHeader alloc] init];
     [self configCustom];
     [self ts_headerRefreshing:NO];
@@ -29,6 +28,27 @@
     };
     
     return self;
+}
+
+- (UIScrollView *)ts_addSharedRefreshAction:(void (^)(void))refreshBlock {
+    if (TSRefreshConfig.shared.headerViewClass != nil) {
+        UIView *headerView = [[NSClassFromString(TSRefreshConfig.shared.headerViewClass) alloc] init];
+        if ([headerView isKindOfClass:MJRefreshHeader.class]) {
+            self.mj_header = (MJRefreshHeader *)headerView;
+            [self configSharedCustom];
+            [self ts_headerRefreshing:NO];
+            __weak typeof(self) weakSelf = self;
+            self.mj_header.refreshingBlock = ^{
+                [weakSelf ts_headerRefreshing:YES];
+                refreshBlock();
+            };
+            return  self;
+        } else {
+            return [self ts_addRefreshAction:refreshBlock];
+        }
+    } else {
+        return [self ts_addRefreshAction:refreshBlock];
+    }
 }
 
 /**
@@ -48,7 +68,7 @@
         [weakSelf ts_headerRefreshing:YES];
         refreshBlock();
     };
-    
+
     return self;
 }
 
@@ -60,12 +80,28 @@
  @return <#return value description#>
  */
 - (UIScrollView *)ts_addLoadMoreAction:(void (^)(void))loadMoreBlock {
-    
     self.mj_footer = [[MJRefreshBackNormalFooter alloc] init];
     [self configCustom];
     self.mj_footer.refreshingBlock = loadMoreBlock;
     return self;
 }
+
+- (UIScrollView *)ts_addSharedLoadMoreAction:(void (^)(void))loadMoreBlock {
+    if (TSRefreshConfig.shared.footerViewClass != nil) {
+        UIView *footerView = [[NSClassFromString(TSRefreshConfig.shared.footerViewClass) alloc] init];
+        if ([footerView isKindOfClass:MJRefreshFooter.class]) {
+            self.mj_footer = (MJRefreshFooter *)footerView;
+            [self configSharedCustom];
+            self.mj_footer.refreshingBlock = loadMoreBlock;
+            return self;
+        } else {
+            return [self ts_addLoadMoreAction:loadMoreBlock];
+        }
+    } else {
+        return [self ts_addLoadMoreAction:loadMoreBlock];
+    }
+}
+
 
 /**
  添加加载更多 自定义View

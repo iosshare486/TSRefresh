@@ -19,6 +19,14 @@
 - (UIScrollView *)ts_addRefreshAction:(void (^)(void))refreshBlock;
 
 /**
+ 添加全局配置下拉刷新
+
+ @param refreshBlock <#refreshBlock description#>
+ @return <#return value description#>
+ */
+- (UIScrollView *)ts_addSharedRefreshAction:(void (^)(void))refreshBlock;
+
+/**
  添加下拉刷新
 
  @param refreshBlock <#refreshBlock description#>
@@ -35,6 +43,14 @@
  @return <#return value description#>
  */
 - (UIScrollView *)ts_addLoadMoreAction:(void (^)(void))loadMoreBlock;
+
+/**
+ 添加全局加载更多
+ 
+ @param loadMoreBlock <#loadMoreBlock description#>
+ @return <#return value description#>
+ */
+- (UIScrollView *)ts_addSharedLoadMoreAction:(void (^)(void))loadMoreBlock;
 
 /**
  添加加载更多 自定义View

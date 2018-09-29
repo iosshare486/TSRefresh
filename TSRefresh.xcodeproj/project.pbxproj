@@ -17,6 +17,9 @@
 		B25CEC1520DB902100F47F17 /* TSRefreshUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25CEC1420DB902100F47F17 /* TSRefreshUITests.swift */; };
 		B27D52A3212C0EBB0080638F /* UIScrollView+TSRefreshStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = B27D52A2212C0EBB0080638F /* UIScrollView+TSRefreshStyle.m */; };
 		B27D52A6212C0ECB0080638F /* UIScrollView+TSRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = B27D52A5212C0ECB0080638F /* UIScrollView+TSRefresh.m */; };
+		B29E8689215F1B7B0099EC4C /* TSRefreshConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E8688215F1B7B0099EC4C /* TSRefreshConfig.m */; };
+		B29E868C215F4CAD0099EC4C /* TSTestHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E868B215F4CAD0099EC4C /* TSTestHeaderView.m */; };
+		B29E868E215F551B0099EC4C /* TSTestFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29E868D215F551B0099EC4C /* TSTestFooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,11 @@
 		B27D52A4212C0ECB0080638F /* UIScrollView+TSRefresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TSRefresh.h"; sourceTree = "<group>"; };
 		B27D52A5212C0ECB0080638F /* UIScrollView+TSRefresh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TSRefresh.m"; sourceTree = "<group>"; };
 		B27D52AA212C34010080638F /* TSRefresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSRefresh.h; sourceTree = "<group>"; };
+		B29E8687215F1B7B0099EC4C /* TSRefreshConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSRefreshConfig.h; sourceTree = "<group>"; };
+		B29E8688215F1B7B0099EC4C /* TSRefreshConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSRefreshConfig.m; sourceTree = "<group>"; };
+		B29E868A215F4CAD0099EC4C /* TSTestHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSTestHeaderView.h; sourceTree = "<group>"; };
+		B29E868B215F4CAD0099EC4C /* TSTestHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSTestHeaderView.m; sourceTree = "<group>"; };
+		B29E868D215F551B0099EC4C /* TSTestFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSTestFooterView.swift; sourceTree = "<group>"; };
 		D628A377C28A1E6877D1D5AE /* Pods_TSRefresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TSRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEFC4C52D2751F2883C14E9A /* Pods-TSRefresh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSRefresh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TSRefresh/Pods-TSRefresh.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +142,9 @@
 				B25CEC2220DB910300F47F17 /* TSRefresh */,
 				B25CEBF420DB901F00F47F17 /* AppDelegate.swift */,
 				B25CEBF620DB901F00F47F17 /* ViewController.swift */,
+				B29E868A215F4CAD0099EC4C /* TSTestHeaderView.h */,
+				B29E868B215F4CAD0099EC4C /* TSTestHeaderView.m */,
+				B29E868D215F551B0099EC4C /* TSTestFooterView.swift */,
 				B25CEBF820DB901F00F47F17 /* Main.storyboard */,
 				B25CEBFB20DB902100F47F17 /* Assets.xcassets */,
 				B25CEBFD20DB902100F47F17 /* LaunchScreen.storyboard */,
@@ -176,6 +187,8 @@
 				B27D52A4212C0ECB0080638F /* UIScrollView+TSRefresh.h */,
 				B27D52A5212C0ECB0080638F /* UIScrollView+TSRefresh.m */,
 				B27D52AA212C34010080638F /* TSRefresh.h */,
+				B29E8687215F1B7B0099EC4C /* TSRefreshConfig.h */,
+				B29E8688215F1B7B0099EC4C /* TSRefreshConfig.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -364,7 +377,10 @@
 				B25CEBF720DB901F00F47F17 /* ViewController.swift in Sources */,
 				B25CEBF520DB901F00F47F17 /* AppDelegate.swift in Sources */,
 				B27D52A3212C0EBB0080638F /* UIScrollView+TSRefreshStyle.m in Sources */,
+				B29E8689215F1B7B0099EC4C /* TSRefreshConfig.m in Sources */,
+				B29E868C215F4CAD0099EC4C /* TSTestHeaderView.m in Sources */,
 				B27D52A6212C0ECB0080638F /* UIScrollView+TSRefresh.m in Sources */,
+				B29E868E215F551B0099EC4C /* TSTestFooterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

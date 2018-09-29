@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ViewController:UIViewController{
+class ViewController: UIViewController{
+    
     var scrollView:UIScrollView?
     var csBtn = UIButton.init(type: .custom)
     override func viewDidLoad() {
@@ -37,13 +38,13 @@ class ViewController:UIViewController{
 //
 //        }
 //
+//        self.scrollView?.ts_refreshingTextFontAndColor(UIFont.systemFont(ofSize: 20), color: .red)
+//        
+//        self.scrollView?.ts_refreshingText("正在刷洗哦")
+//        self.scrollView?.ts_loaddingText("lalalalalall").ts_noMoreDataText("meiyoule").ts_loadTextFontAndColor(UIFont.systemFont(ofSize: 25), color: .yellow).ts_releaseLoadMoreText("hahahah")
+//        self.scrollView?.ts_pullDown(toRefreshText: "123")
         
-        self.scrollView?.ts_refreshingTextFontAndColor(UIFont.systemFont(ofSize: 20), color: .red)
-        
-        self.scrollView?.ts_refreshingText("正在刷洗哦")
-        self.scrollView?.ts_loaddingText("lalalalalall").ts_noMoreDataText("meiyoule").ts_loadTextFontAndColor(UIFont.systemFont(ofSize: 25), color: .yellow).ts_releaseLoadMoreText("hahahah")
-        self.scrollView?.ts_pullDown(toRefreshText: "123")
-        self.scrollView?.ts_addRefreshAction({
+        self.scrollView?.ts_addSharedRefreshAction({
             self.refresh()
         }).ts_addLoadMoreAction({
             self.loadMore()
@@ -117,3 +118,4 @@ class ViewController:UIViewController{
         self.view.addSubview(self.scrollView!)
     }
 }
+

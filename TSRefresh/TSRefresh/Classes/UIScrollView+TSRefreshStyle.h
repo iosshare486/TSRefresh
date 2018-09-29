@@ -16,6 +16,11 @@
 - (void)configCustom;
 
 /**
+ 配置全局
+ */
+- (void)configSharedCustom;
+
+/**
  是否是刷新中
 
  @return <#return value description#>
