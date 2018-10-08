@@ -1,31 +1,49 @@
 # 下拉刷新使用说明
 
-## 集成方法
+## 提供功能：添加自定义下拉刷新和上拉加载
+
+## 使用方法
+### 1.添加默认刷新与加载
 <pre>
 	let scrollView = UIScrollView(frame: CGRect(x: 0,y: 0,width: 300,height: 300))
-	添加下拉刷新
-	scrollView?.ts_addRefreshAction {
+	添加默认下拉刷新
+	scrollView.ts_addRefreshAction {
             [weak self] in
             print("excute refreshBlock")
-            self?.refresh()
         }
-   	添加上拉加载 
-	scrollView?.ts_addLoadMoreAcion {
+   	添加默认上拉加载 
+	scrollView.ts_addLoadMoreAcion {
             [weak self] in
             print("excute loadMoreBlock")
-            self?.loadMore()
         }
-   	停止下拉刷新
-	scrollView?.ts_endRefreshing(isSuccess: true)
-    
-    停止上拉加载
-	scrollView?.ts_endLoadMore(isNoMoreData: true)
-   	是否显示上拉加载
-	scrollView?.ts_isShowLoadMore(isShow: false)
 </pre>
 
-## 额外配置
+### 2.添加全局配置刷新与加载
+<pre>
+	在Delegate内配置TSRefreshConfig的相关属性后，添加方法如下：
+	添加全局配置下拉刷新
+	scrollView.ts_addSharedRefreshAction({
+   		刷新触发         
+   })
+   添加全局配置上拉加载
+	scrollView.ts_addSharedLoadMoreAction({
+		加载触发
+   })
+</pre>
 
+### 3.停止刷新与加载、隐藏刷新与加载
+
+<pre>
+	停止下拉刷新和停止上拉加载
+	scrollView.ts_endRefreshingAndLoading(false)
+   	是否显示上拉加载
+	scrollView.ts_isShowLoadMore(isShow: false)
+	是否显示下拉刷新
+	scrollView.ts_isShowRefresh(true)
+</pre>
+
+## API说明
+### 1.默认下拉刷新和加载样式配置API
 <pre>
 	// header配置
 	scrollView?.ts_pullDownToRefreshText("亲，试试下拉会刷新的") 未到达刷新点提示文案
@@ -50,80 +68,99 @@
     self.scrollView?.ts_footerIdleImage(UIImage.init(named: "youku_refreshing"))   未到达刷新点展位图片
 </pre>
 
-## 自定义下拉刷新和上拉加载
+### 2.全局配置API 
+<pre>
+TSRefreshConfig全局配置API
+/** headerView */
+TSRefreshConfig.shared().headerView
 
+/** footerView */ 
+TSRefreshConfig.shared().footerView
+
+// 下拉刷新
+/** 默认文字 */
+TSRefreshConfig.shared().pullDownToRefreshText
+/** 将要释放文字 */
+TSRefreshConfig.shared().releaseToRefreshText
+/** 刷新中文字 */
+TSRefreshConfig.shared().refreshingText
+/** 状态字体 */
+TSRefreshConfig.shared().refreshingTextFont
+/** 状态字体颜色 */
+TSRefreshConfig.shared().refreshingTextColor
+/** 是否隐藏状态文字 */
+ TSRefreshConfig.shared().hiddenRefreshingStatusText
+/** 是否隐藏刷新时间文字 */
+TSRefreshConfig.shared().hiddenLastTimeText
+/** 替换箭头图片 */
+ TSRefreshConfig.shared().refreshingImage
+//上拉加载
+/** 默认文字 */
+TSRefreshConfig.shared().pullUpToRefreshText
+/** 刷新中文字 */
+TSRefreshConfig.shared().loaddingText
+/** 无数据文字 */
+TSRefreshConfig.shared().noMoreDataText
+/** 将要释放文字 */
+TSRefreshConfig.shared().releaseLoadMoreText
+/** 状态文字字体 */
+TSRefreshConfig.shared().loadTextFont
+/** 状态文字颜色 */
+TSRefreshConfig.shared().loadTextColor
+/** 箭头图片 */
+TSRefreshConfig.shared().loadingImage
+</pre>
+
+## 自定义下拉刷新和上拉加载
+### 1.自定义Headerview
 <pre>
 	//header配置
-	//自定义View，以TSDemoRefreshHeader为例
-	class TSDemoRefreshHeader: TSRefreshHeader, TSRefreshHeaderProtocol 	{
-		override init(frame: CGRect) {
-        
-       // let adjustFrame = CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.size.width, height: frameHeight)
-        	super.init(frame: frame)
-        	
+	class TSTestNormalHeaderView: MJRefreshStateHeader {
+    override func placeSubviews() {
+        super.placeSubviews()
+        //页面布局
+    }
+    override var state: MJRefreshState {
+        didSet {
+            //不同状态的控制代码
         }
-        override func layoutSubviews() {
-        	super.layoutSubviews()
-        	
+    }
+    override func prepare() {
+        super.prepare()
+        //准备工作
+        //根据需要隐藏MJ的View和创建自己的View
+        //根据需要设置View的高度
+        self.mj_h = 100
+    }
+}
+</pre>
+### 2.自定义Footerview
+<pre>
+	//footer配置
+	class TSTestFooterView: MJRefreshBackStateFooter {
+    //状态改变
+    override var state: MJRefreshState {
+        didSet {
+            switch state {
+            case .idle:
+                break
+            default:
+                break
+            }
         }
-        //必须实现协议 返回控件的高度
-        func tsContentHeight()->CGFloat{
-        return 60
-    	 }
-    	 //以下协议为可选实现
-    	 /// 正常状态
-	    @objc optional func tsToNormalState()
-	    /// 刷新状态
-	    @objc optional func tsToRefreshingState()
-	    /// 下拉状态
-	    @objc optional func tsToPullingState()
-	    /// 打到最大下拉程度
-	    @objc optional func tsToWillRefreshState()
-	    /// 下拉高度／触发高度 值改变
-	    @objc optional func tsChangePullingPercent(percent: CGFloat)
-	    /// 开始回弹动画前执行
-	    @objc optional func tsWillBeginEndRefershing(isSuccess: Bool)
-	    /// 结束回弹动画完成后执行
-	    @objc optional func tsWillCompleteEndRefershing()
-	}
-	//使用
-	let refreshHeader = TSRefreshHeader()
-	self.scrollView?.ts_addRefreshHeaderView(refreshHeader: refreshHeader, refreshBlock: { [weak self] in
-            print("excute refreshBlock")
-            self?.refresh()
-        })
-	
-	//footer配置	
-	class TSDemoRefreshFooter: TSLoadMoreFooter, TSLoadMoreProtocol 	{
-		override init(frame: CGRect) {
-        
-       // let adjustFrame = CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.size.width, height: frameHeight)
-        	super.init(frame: frame)
-        	
-        }
-        override func layoutSubviews() {
-        	super.layoutSubviews()
-        	
-        }
-        //必须实现协议 返回控件的高度
-        func tsContentHeight()->CGFloat{
-        return 60
-    	 }
-    	 //以下协议为可选实现
-    	 //默认状态
-    	 @objc optional func tsToNormalState()
-    	 //没有更多数据状态
-    	 @objc optional func tsToNoMoreDataState()
-    	 //打到最大上拉程度状态
-    	 @objc optional func tsToWillRefreshState()
-    	 // 刷新状态
-    	 @objc optional func tsToRefreshingState()
-	}
-	//使用
-    let refreshFooter = TSDemoRefreshFooter()
-    self.scrollView?.ts_addLoadMoreFooterView(loadMoreFooter: refreshFooter, loadMoreBlock: { [weak self] in
-            print("excute refreshBlock")
-        })
+    }
+    //准备工作
+    override func prepare() {
+        super.prepare()
+        //根据需要隐藏MJ的View和创建自己的View
+        //根据需要设置View的高度
+    }
+    
+    //页面布局
+    override func placeSubviews() {
+        super.placeSubviews()
+    }   
+}
 </pre>
 ## Pod
 pod 'TSRefresh'
