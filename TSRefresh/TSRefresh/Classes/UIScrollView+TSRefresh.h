@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MJRefresh/MJRefresh.h>
+#import "MJRefresh.h"
+//#import <MJRefresh/MJRefresh.h>
 @interface UIScrollView (TSRefresh)
 
 /**
